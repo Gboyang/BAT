@@ -1,0 +1,79 @@
+
+[Version] 
+Signature = "$Windows NT$" 
+Class = System
+ClassGUID = {4d36e97d-e325-11ce-bfc1-08002be10318} 
+Provider = %SMCI% 
+CatalogFile = phymem.cat
+DriverVer = 08/09/2021,2.7.0.1
+
+[DestinationDirs] 
+phymem.Files = 12
+
+[SourceDisksNames]
+0 = %Desc%
+
+[SourceDisksFiles]
+phymem.sys = 0,, 
+
+[Manufacturer] 
+%SMCI% = SMCI,NTamd64
+
+[SMCI]
+%phymemDesc% = phymem_Inst,*phymem
+
+[SMCI.NTamd64]
+%phymemDesc% = phymem_Inst,*phymem
+
+[phymem_Inst] 
+CopyFiles = phymem.Files, 
+
+[phymem_Inst.HW] 
+Addreg = phymem_Addreg
+
+[phymem_Addreg]
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)"
+
+[phymem_Inst.Services] 
+AddService = phymem,0x00000002,phymem_Service_Inst, 
+
+[phymem_Service_Inst] 
+ServiceType = %SERVICE_KERNEL_DRIVER% 
+StartType = %SERVICE_AUTO_START% 
+ErrorControl = %SERVICE_ERROR_IGNORE% 
+ServiceBinary = %12%\phymem.sys 
+
+[phymem.Files] 
+phymem.sys
+
+;[phymem_EventLog_Inst] 
+;AddReg = phymem_EventLog_Inst.AddReg 
+ 
+;[phymem_EventLog_Inst.AddReg] 
+;HKR,,EventMessageFile,%REG_EXPAND_SZ%,"%%SystemRoot%%\System32\IoLogMsg.dll" 
+;HKR,,TypesSupported,%REG_DWORD%,7
+
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+SMCI= "Supermicro" 
+Desc= "Super Micro Computer, Inc. Physical Memory Driver." 
+phymemDesc= "Supermicro PhyMem Driver" 
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED = 0x4 
+
+SERVICE_KERNEL_DRIVER = 0x1 
+SERVICE_ERROR_IGNORE = 0x0 
+SERVICE_ERROR_NORMAL = 0x1 
+SERVICE_ERROR_SEVERE = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD = 0x00010001 

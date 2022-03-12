@@ -1,0 +1,3 @@
+2022-01-17_10:21:01        sum -i 10.82.20.237 -u ***** -p ***** -c GetCurrentBiosCfg --file C:\Users\yanghao\Desktop\script\bat_script\InitProject\Script\\bios.xml --overwrite 
+2022-01-17_10:22:59        sum -i 10.82.20.237 -u ***** -p ***** -c GetCurrentBiosCfg --file C:\Users\yanghao\Desktop\script\bat_script\InitProjectbios.xml --overwrite 
+2022-01-17_10:24:20        sum -i 10.82.20.237 -u ***** -p ***** -c GetCurrentBiosCfg --file C:\Users\yanghao\Desktop\script\bat_script\InitProject\bios.xml --overwrite 
